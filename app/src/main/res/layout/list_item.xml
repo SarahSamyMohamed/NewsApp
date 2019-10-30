@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:orientation="horizontal">
 
         <TextView
@@ -32,9 +32,17 @@
             android:layout_gravity="end"
             android:textColor="#0000ff"
             android:textSize="12sp"
-            tools:text="Mar 6, 2010" />
-
+            tools:text="Oct 30, 2019" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/author_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:textColor="#424242"
+        android:textSize="12sp"
+        tools:text="author name" />
 
     <TextView
         android:id="@+id/article_title"

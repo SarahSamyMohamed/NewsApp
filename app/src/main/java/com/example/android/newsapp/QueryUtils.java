@@ -66,7 +66,11 @@ public class QueryUtils {
                 String webPublicationDate = currentArticle.getString("webPublicationDate");
                 String webUrl = currentArticle.getString("webUrl");
 
-                News myNews = new News(sectionName, webTitle, webPublicationDate, webUrl);
+                JSONArray tags = currentArticle.getJSONArray("tags");
+                JSONObject indexZero = tags.getJSONObject(0);
+                String author = indexZero.getString("webTitle");
+
+                News myNews = new News(sectionName, webTitle, webPublicationDate, webUrl, author);
                 news.add(myNews);
             }
         } catch (JSONException e) {

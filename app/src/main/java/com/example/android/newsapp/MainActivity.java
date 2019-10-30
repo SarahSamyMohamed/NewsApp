@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     public static final int NEWS_LOADER_ID = 1;
     private static final String LOG_TAG = MainActivity.class.getName();
-    private static final String REQUEST_URL = "https://content.guardianapis.com/search?order-by=newest&api-key=test";
+    private static final String REQUEST_URL = "https://content.guardianapis.com/search?order-by=newest";
 
 
     private NewsAdapter mAdapter;
@@ -66,7 +66,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public Loader<List<News>> onCreateLoader(int id, Bundle bundle) {
-        return new NewsLoader(this, REQUEST_URL);
+        Uri baseUri = Uri.parse(REQUEST_URL);
+        Uri.Builder uriBuilder = baseUri.buildUpon();
+        uriBuilder.appendQueryParameter("show-tags", "contributor");
+        uriBuilder.appendQueryParameter("api-key", "test");
+
+        return new NewsLoader(this, uriBuilder.toString());
     }
 
     @Override
